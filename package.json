@@ -1,0 +1,48 @@
+{
+  "name": "server-chat",
+  "version": "1.0.0",
+  "description": "chat node js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx ./src/Main/server.ts",
+    "watch": "tsx watch ./src/Main/server.ts",
+    "build": "tsup ./src/Main/server.ts",
+    "start": "node dist/server.js",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "lint:fix": "eslint --ext .ts,.tsx ./src --fix",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "test:coverage:open": "vitest --coverage --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "@vitest/coverage-c8": "^0.29.8",
+    "cjstoesm": "^2.1.2",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7",
+    "prettier-eslint-plugin": "^1.1.4",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.15.0",
+    "mongodb": "^5.1.0",
+    "mongodb-memory-server": "^8.12.2",
+    "ts-node": "^10.9.1",
+    "yup": "^1.0.2"
+  }
+}
