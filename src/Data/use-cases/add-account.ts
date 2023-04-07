@@ -2,7 +2,7 @@ import { AddAccount } from '@/Domain/use-cases/add-account';
 import { Either } from '../../Shared/Either';
 import { Encrypter } from '../protocols/cryptography/encrypter';
 import { AddAccountRepository } from '../protocols/repositories/add-account-repository';
-import { FindUserByEmailRepository } from '../protocols/repositories/find-user-repository';
+import { FindUserByEmailRepository } from '../protocols/repositories/find-user-email-repository';
 
 export class DbAddAccount implements AddAccount {
   constructor(

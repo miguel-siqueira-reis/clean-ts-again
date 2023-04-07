@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Either } from '../../Shared/Either';
 import { Encrypter } from '../protocols/cryptography/encrypter';
 import { AddAccountRepository } from '../protocols/repositories/add-account-repository';
-import { FindUserByEmailRepository } from '../protocols/repositories/find-user-repository';
+import { FindUserByEmailRepository } from '../protocols/repositories/find-user-email-repository';
 import { DbAddAccount } from './add-account';
 
 const makeAddAccountRepositoryStub = () => {
@@ -72,7 +72,7 @@ describe('addAccount', () => {
       Either.right({
         id: 'valid_id',
         name: data.name,
-        email: data.email
+        email: data.email,
       }),
     );
   });

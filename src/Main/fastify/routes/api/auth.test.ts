@@ -1,17 +1,17 @@
-import { FastifyInstance } from "fastify";
-import { MongoMemoryServer } from "mongodb-memory-server";
+import { FastifyInstance } from 'fastify';
+import { MongoMemoryServer } from 'mongodb-memory-server';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { db } from "@/Infra/repositories/mongo-db/db";
-import { app } from "@/Main/fastify/app";
-import { Db } from "@/Main/types";
+import { db } from '@/Infra/repositories/mongo-db/db';
+import { app } from '@/Main/fastify/app';
+import { Db } from '@/Main/types';
 
 let mongoMemory: MongoMemoryServer;
 let mongoDb: Db;
 
-let server: FastifyInstance = app.getServer();
+const server: FastifyInstance = app.getServer();
 
-describe("auth register router", () => {
+describe('auth register router', () => {
   beforeAll(async () => {
     mongoMemory = await MongoMemoryServer.create();
     mongoDb = db;
@@ -19,15 +19,15 @@ describe("auth register router", () => {
     await app.start();
   });
 
-  it("should return an user and status code 200 on request to /api/auth/register", async () => {
+  it('should return an user and status code 200 on request to /api/auth/register', async () => {
     const response = await server.inject({
-      method: "POST",
-      url: "/api/auth/register",
+      method: 'POST',
+      url: '/api/auth/register',
       payload: {
-        name: "valid_name",
-        email: "valid@mail.com",
-        password: "valid_password",
-        passwordConfirmation: "valid_password",
+        name: 'valid_name',
+        email: 'valid@mail.com',
+        password: 'valid_password',
+        passwordConfirmation: 'valid_password',
       },
     });
 
@@ -36,9 +36,9 @@ describe("auth register router", () => {
     expect(response.statusCode).toBe(200);
     expect(data).toEqual({
       id: data.id,
-      name: "valid_name",
-      email: "valid@mail.com",
-    })
+      name: 'valid_name',
+      email: 'valid@mail.com',
+    });
   });
 
   afterAll(async () => {

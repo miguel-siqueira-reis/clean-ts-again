@@ -84,7 +84,6 @@ describe('SignupValidation', () => {
       name: input.name,
       email: input.email,
       password: input.password,
-
     } as any);
 
     expect(error.isLeft()).toBe(true);
